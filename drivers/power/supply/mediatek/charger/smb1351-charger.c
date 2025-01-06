@@ -2284,7 +2284,9 @@ static int smb1351_set_usbchg_current(struct charger_device *chg_dev, u32 uA)
 	u8 reg = 0, mask = 0;
 	u32 current_ma = uA / 1000;
 
+#ifdef CONFIG_MTK_ENG_BUILD
 	pr_err("USB current_ma = %d\n", current_ma);
+#endif
 
 	if (chip->chg_autonomous_mode) {
 		pr_debug("Charger in autonomous mode\n");
